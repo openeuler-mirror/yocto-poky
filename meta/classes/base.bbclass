@@ -147,8 +147,8 @@ def setup_hosttools_dir(dest, toolsvar, d, fatal=True):
 
 addtask fetch
 do_fetch[dirs] = "${DL_DIR}"
-do_fetch[file-checksums] = "${@bb.fetch.get_checksum_file_list(d)}"
-do_fetch[file-checksums] += " ${@get_lic_checksum_file_list(d)}"
+#do_fetch[file-checksums] = "${@bb.fetch.get_checksum_file_list(d)}"
+#do_fetch[file-checksums] += " ${@get_lic_checksum_file_list(d)}"
 do_fetch[vardeps] += "SRCREV"
 python base_do_fetch() {
 

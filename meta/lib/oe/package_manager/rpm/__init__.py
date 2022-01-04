@@ -190,7 +190,12 @@ class RpmPM(PackageManager):
         package_exclude = self.d.getVar('PACKAGE_EXCLUDE')
         exclude_pkgs = (bad_recommendations.split() if bad_recommendations else []) + (package_exclude.split() if package_exclude else [])
 
-        output = self._invoke_dnf((["--skip-broken"] if attempt_only else []) +
+        #fix dnf install error(package xxx is intended for a different architecture) when running do_rootfs
+        arch_option = ""
+        arch = self.d.getVar('ROOTFS_PACKAGE_ARCH')
+        if arch:
+            arch_option = "--forcearch=%s" % arch
+        output = self._invoke_dnf(([arch_option]) + (["--skip-broken"] if attempt_only else []) +
                          (["-x", ",".join(exclude_pkgs)] if len(exclude_pkgs) > 0 else []) +
                          (["--setopt=install_weak_deps=False"] if self.d.getVar('NO_RECOMMENDATIONS') == "1" else []) +
                          (["--nogpgcheck"] if self.d.getVar('RPM_SIGN_PACKAGES') != '1' else ["--setopt=gpgcheck=True"]) +

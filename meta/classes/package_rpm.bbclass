@@ -675,9 +675,14 @@ python do_package_rpm () {
     pkgarch = d.expand('${PACKAGE_ARCH_EXTEND}${HOST_VENDOR}-linux')
     bb.utils.mkdirhier(pkgwritedir)
     os.chmod(pkgwritedir, 0o755)
+    #dnf only support specifix arch when do_rootfs,
+    #to fix depends check error and no match for argument because wrong arch
+    if d.getVar("ROOTFS_PACKAGE_ARCH") and package_arch != "noarch":
+        pkgarch =d.getVar("ROOTFS_PACKAGE_ARCH")
 
     cmd = rpmbuild
-    cmd = cmd + " --noclean --nodeps --short-circuit --target " + pkgarch + " --buildroot " + pkgd
+    #delete --short-circuit to fix rpmlib(ShortCircuited) <= 4.9.0-1 is needed by kernel-1.0-r1.aarch64
+    cmd = cmd + " --noclean --nodeps --target " + pkgarch + " --buildroot " + pkgd
     cmd = cmd + " --define '_topdir " + workdir + "' --define '_rpmdir " + pkgwritedir + "'"
     cmd = cmd + " --define '_builddir " + d.getVar('B') + "'"
     cmd = cmd + " --define '_build_name_fmt %%{NAME}-%%{VERSION}-%%{RELEASE}.%%{ARCH}.rpm'"

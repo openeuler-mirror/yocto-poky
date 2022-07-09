@@ -71,7 +71,7 @@ EXTRA_OECONF_append_libc-musl = " --disable-nls --disable-openmp"
 # Forcibly disable plugins for native/nativesdk, as the inhibit and prioreset
 # plugins both behave badly inside builds.
 EXTRA_OECONF_append_class-native = " --sysconfdir=/etc --localstatedir=/var --disable-plugins"
-EXTRA_OECONF_append_class-nativesdk = " --sysconfdir=/etc --disable-plugins"
+EXTRA_OECONF_append_class-nativesdk = " --sysconfdir=/etc --localstatedir=/var --disable-plugins"
 
 BBCLASSEXTEND = "native nativesdk"
 

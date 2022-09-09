@@ -44,24 +44,31 @@ TOOLCHAIN_HOST_TASK += "\
 # gconv-cp1250, cp1251 and euc-jp needed for iconv to work in vim builds
 # also copied list from uninative
 
-# openeuler-image build
+# openeuler-image-tiny build
 TOOLCHAIN_HOST_TASK += "\
     nativesdk-cpio \
     nativesdk-attr-dev \
     nativesdk-libsqlite3-dev \
-    nativesdk-cmake \
-    nativesdk-meson \
-    nativesdk-ninja \
-    nativesdk-gettext-dev \
+    nativesdk-gettext-dev
     nativesdk-createrepo-c \
-    nativesdk-dnf \
-    nativesdk-cracklib \
-    nativesdk-bison \
-    nativesdk-flex \
-    nativesdk-kmod \
     nativesdk-gmp-dev \
     nativesdk-libmpc-dev \
     nativesdk-openssl-dev \
+    nativesdk-kmod \
+    nativesdk-tzcode \
+    nativesdk-elfutils-dev \
+    nativesdk-dnf \
+    nativesdk-python3-yaml \
+"
+
+# openeuler-image build
+TOOLCHAIN_HOST_TASK += "\
+    nativesdk-cmake \
+    nativesdk-meson \
+    nativesdk-ninja \
+    nativesdk-cracklib \
+    nativesdk-bison \
+    nativesdk-flex \
     nativesdk-autoconf-archive \
     nativesdk-zlib-dev \
     nativesdk-gtk-doc-dev \
@@ -69,19 +76,24 @@ TOOLCHAIN_HOST_TASK += "\
     nativesdk-e2fsprogs-dev \
     nativesdk-util-linux-dev \
     nativesdk-bzip2-dev \
-    nativesdk-tzcode \
-    nativesdk-elfutils-dev \
     nativesdk-btrfs-tools \
     nativesdk-squashfs-tools \
-    nativesdk-python3-mako \
-    nativesdk-util-macros \
     nativesdk-swig \
     nativesdk-libxslt \
     nativesdk-python3-dev \
     nativesdk-intltool \
     nativesdk-tcl \
-    nativesdk-python3-yaml \
+    nativesdk-glib-2.0-dev \
+    nativesdk-dtb \
     "
+
+# packages required for building graphics 
+TOOLCHAIN_HOST_TASK += "\
+    nativesdk-python3-mako \
+    nativesdk-util-macros \
+    nativesdk-xorgproto-dev \
+    nativesdk-qemu \
+"
 
 TOOLCHAIN_OUTPUTNAME = "${SDK_ARCH}-buildtools-extended-nativesdk-standalone-${DISTRO_VERSION}"
 

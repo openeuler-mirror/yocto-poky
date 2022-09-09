@@ -80,6 +80,7 @@ TOOLCHAIN_HOST_TASK += "\
     nativesdk-python3-dev \
     nativesdk-intltool \
     nativesdk-tcl \
+    nativesdk-python3-yaml \
     "
 
 TOOLCHAIN_OUTPUTNAME = "${SDK_ARCH}-buildtools-extended-nativesdk-standalone-${DISTRO_VERSION}"

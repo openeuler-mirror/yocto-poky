@@ -11,7 +11,6 @@ TOOLCHAIN_HOST_TASK ?= "\
     nativesdk-python3-modules \
     nativesdk-python3-misc \
     nativesdk-python3-git \
-    nativesdk-python3-yaml \
     nativesdk-python3-jinja2 \
     nativesdk-python3-testtools \
     nativesdk-python3-subunit \

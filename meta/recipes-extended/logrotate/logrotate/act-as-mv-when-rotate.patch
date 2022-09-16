@@ -100,7 +100,7 @@ index 45b3eb6..231371a 100644
                          tmpFilename);
 -                if (!debug && !hasErrors && rename(log->files[logNum], tmpFilename)) {
 -                    message(MESS_ERROR, "failed to rename %s to %s: %s\n",
-+                if (!debug && !hasErrors && mvFile(log->files[logNum], rotNames->finalName, log, prev_acl)) {
++                if (!debug && !hasErrors && mvFile(log->files[logNum], tmpFilename, log, prev_acl)) {
 +                    message(MESS_ERROR, "failed to move %s to %s: %s\n",
                              log->files[logNum], tmpFilename,
                              strerror(errno));

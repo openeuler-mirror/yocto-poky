@@ -49,7 +49,7 @@ TOOLCHAIN_HOST_TASK += "\
     nativesdk-cpio \
     nativesdk-attr-dev \
     nativesdk-libsqlite3-dev \
-    nativesdk-gettext-dev
+    nativesdk-gettext-dev \
     nativesdk-createrepo-c \
     nativesdk-gmp-dev \
     nativesdk-libmpc-dev \
@@ -84,7 +84,7 @@ TOOLCHAIN_HOST_TASK += "\
     nativesdk-intltool \
     nativesdk-tcl \
     nativesdk-glib-2.0-dev \
-    nativesdk-dtb \
+    nativesdk-dtc \
     "
 
 # packages required for building graphics 

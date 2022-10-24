@@ -92,7 +92,8 @@ TOOLCHAIN_HOST_TASK += "\
     nativesdk-python3-mako \
     nativesdk-util-macros \
     nativesdk-xorgproto-dev \
-    nativesdk-qemu \
+    nativesdk-libxml2-dev \
+    nativesdk-expat-dev \
 "
 
 TOOLCHAIN_OUTPUTNAME = "${SDK_ARCH}-buildtools-extended-nativesdk-standalone-${DISTRO_VERSION}"

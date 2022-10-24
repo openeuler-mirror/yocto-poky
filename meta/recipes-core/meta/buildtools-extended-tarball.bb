@@ -46,6 +46,7 @@ TOOLCHAIN_HOST_TASK += "\
 
 # openeuler-image-tiny build
 TOOLCHAIN_HOST_TASK += "\
+    nativesdk-openeuler \
     nativesdk-cpio \
     nativesdk-attr-dev \
     nativesdk-libsqlite3-dev \

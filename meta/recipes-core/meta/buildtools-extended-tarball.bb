@@ -95,6 +95,18 @@ TOOLCHAIN_HOST_TASK += "\
     nativesdk-xorgproto-dev \
     nativesdk-libxml2-dev \
     nativesdk-expat-dev \
+    nativesdk-libxml2-utils \
+"
+
+# packages required for build dnf and ros
+TOOLCHAIN_HOST_TASK += " \
+    nativesdk-qemu \
+    nativesdk-glib-2.0-utils \
+    nativesdk-python3-setuptools \
+    nativesdk-python3-setuptools-scm \
+    nativesdk-python3-cython \
+    nativesdk-python3-toml \
+    nativesdk-python3-pytest \
 "
 
 TOOLCHAIN_OUTPUTNAME = "${SDK_ARCH}-buildtools-extended-nativesdk-standalone-${DISTRO_VERSION}"

@@ -85,7 +85,8 @@ TOOLCHAIN_HOST_TASK += "\
     nativesdk-intltool \
     nativesdk-tcl \
     nativesdk-glib-2.0-dev \
-    nativesdk-dtc \
+    nativesdk-dtc-dev \
+    nativesdk-unzip \
     "
 
 # packages required for building graphics 

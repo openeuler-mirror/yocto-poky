@@ -144,8 +144,11 @@ def setup_hosttools_dir(dest, toolsvar, d, fatal=True):
 
 addtask fetch
 do_fetch[dirs] = "${DL_DIR}"
-do_fetch[file-checksums] = "${@bb.fetch.get_checksum_file_list(d)}"
-do_fetch[file-checksums] += " ${@get_lic_checksum_file_list(d)}"
+# bypass the src file and license checksum because the current design of openEuler
+# i.e., use openeuler gitee repos only.
+# in the future, the mechanism of file-checksum will be restored
+#do_fetch[file-checksums] = "${@bb.fetch.get_checksum_file_list(d)}"
+#do_fetch[file-checksums] += " ${@get_lic_checksum_file_list(d)}"
 do_fetch[vardeps] += "SRCREV"
 do_fetch[network] = "1"
 python base_do_fetch() {

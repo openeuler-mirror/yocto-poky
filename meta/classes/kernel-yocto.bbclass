@@ -145,7 +145,7 @@ do_kernel_metadata() {
 	# we don't overwrite it, but instead warn the user that SRC_URI defconfigs take
 	# precendence.
 	#
-	if [ -n "${KBUILD_DEFCONFIG}" ]; then
+	if [ -n "${KBUILD_DEFCONFIG}" ] && [ "$mode" = "config" ]; then
 		if [ -f "${S}/arch/${ARCH}/configs/${KBUILD_DEFCONFIG}" ]; then
 			if [ -f "${WORKDIR}/defconfig" ]; then
 				# If the two defconfig's are different, warn that we overwrote the
@@ -227,7 +227,7 @@ do_kernel_metadata() {
 	# expand kernel features into their full path equivalents
 	bsp_definition=$(spp ${includes} --find -DKMACHINE=${KMACHINE} -DKTYPE=${LINUX_KERNEL_TYPE})
 	if [ -z "$bsp_definition" ]; then
-		if [ -z "$sccs_defconfig" ]; then
+		if [ -z "$sccs_defconfig" ] && [ "$mode" = "config" ]; then
 			bbfatal_log "Could not locate BSP definition for ${KMACHINE}/${LINUX_KERNEL_TYPE} and no defconfig was provided"
 		fi
 	else

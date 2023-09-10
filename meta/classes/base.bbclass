@@ -143,7 +143,7 @@ def setup_hosttools_dir(dest, toolsvar, d, fatal=True):
         bb.fatal("The following required tools (as specified by HOSTTOOLS) appear to be unavailable in PATH, please install them in order to proceed:\n  %s" % " ".join(notfound))
 
 addtask fetch
-do_fetch[dirs] = "${DL_DIR}"
+# do_fetch[dirs] = "${DL_DIR}"
 # bypass the src file and license checksum because the current design of openEuler
 # i.e., use openeuler gitee repos only.
 # in the future, the mechanism of file-checksum will be restored

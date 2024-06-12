@@ -238,7 +238,11 @@ class PatchTree(PatchSet):
             shellcmd.append('--dry-run')
 
         try:
-            output = runcmd(["sh", "-c", " ".join(shellcmd)], self.dir)
+            if not force:
+                # behavior of 'with --dry-run' diff from without it, as a workaround, drop runing --dry-run first.
+                output = runcmd(["echo", "oee drop: ", " ".join(shellcmd)], self.dir)
+            else:
+                output = runcmd(["sh", "-c", " ".join(shellcmd)], self.dir)
 
             if force:
                 return

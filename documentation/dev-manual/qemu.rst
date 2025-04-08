@@ -287,12 +287,11 @@ present, the toolchain is also automatically used.
       networking.
 
    -  SSH servers are available in some QEMU images. The ``core-image-sato``
-      QEMU image has a Dropbear secure shell (SSH) server that runs with
-      the root password disabled. The ``core-image-full-cmdline`` and
-      ``core-image-lsb`` QEMU images have OpenSSH instead of Dropbear.
-      Including these SSH servers allow you to use standard ``ssh`` and
-      ``scp`` commands. The ``core-image-minimal`` QEMU image, however,
-      contains no SSH server.
+      QEMU image has a Dropbear secure shell (SSH) server that runs with the
+      root password disabled. The ``core-image-full-cmdline`` QEMU image has
+      OpenSSH instead of Dropbear. Including these SSH servers allow you to use
+      standard ``ssh`` and ``scp`` commands. The ``core-image-minimal`` QEMU
+      image, however, contains no SSH server.
 
    -  You can use a provided, user-space NFS server to boot the QEMU
       session using a local copy of the root filesystem on the host. In
@@ -318,7 +317,7 @@ timestamp when it needs to look for an image. Minimally, through the use
 of options, you must provide either a machine name, a virtual machine
 image (``*wic.vmdk``), or a kernel image (``*.bin``).
 
-Following is the command-line help output for the ``runqemu`` command::
+Here is the command-line help output for the ``runqemu`` command::
 
    $ runqemu --help
 
@@ -360,7 +359,7 @@ Following is the command-line help output for the ``runqemu`` command::
 ``runqemu`` Command-Line Options
 ================================
 
-Following is a description of ``runqemu`` options you can provide on the
+Here is a description of ``runqemu`` options you can provide on the
 command line:
 
 .. note::

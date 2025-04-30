@@ -1,3 +1,9 @@
+#
+# Copyright OpenEmbedded Contributors
+#
+# SPDX-License-Identifier: MIT
+#
+
 inherit python_pyo3 setuptools3
 
 DEPENDS += "python3-setuptools-rust-native"

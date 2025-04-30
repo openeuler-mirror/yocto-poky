@@ -1,4 +1,10 @@
-PYTHON_BASEVERSION = "3.10"
+#
+# Copyright OpenEmbedded Contributors
+#
+# SPDX-License-Identifier: MIT
+#
+
+PYTHON_BASEVERSION = "3.11"
 PYTHON_ABI = ""
 PYTHON_DIR = "python${PYTHON_BASEVERSION}"
 PYTHON_PN = "python3"

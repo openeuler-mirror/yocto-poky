@@ -1,19 +1,25 @@
+#
+# Copyright OpenEmbedded Contributors
+#
+# SPDX-License-Identifier: MIT
+#
+
 # Common infrastructure for Python packages that use PEP-517 compliant packaging.
 # https://www.python.org/dev/peps/pep-0517/
 #
 # This class will build a wheel in do_compile, and use pypa/installer to install
 # it in do_install.
 
-DEPENDS:append = " python3-installer-native"
+DEPENDS:append = " python3-build-native python3-installer-native"
 
 # Where to execute the build process from
 PEP517_SOURCE_PATH ?= "${S}"
 
-# The PEP517 build API entry point
-PEP517_BUILD_API ?= "unset"
-
 # The directory where wheels will be written
 PEP517_WHEEL_PATH ?= "${WORKDIR}/dist"
+
+# Other options to pass to build
+PEP517_BUILD_OPTS ?= ""
 
 # The interpreter to use for installed scripts
 PEP517_INSTALL_PYTHON = "python3"
@@ -31,8 +37,7 @@ python_pep517_do_configure () {
 # When we have Python 3.11 we can parse pyproject.toml to determine the build
 # API entry point directly
 python_pep517_do_compile () {
-    cd ${PEP517_SOURCE_PATH}
-    nativepython3 -c "import ${PEP517_BUILD_API} as api; api.build_wheel('${PEP517_WHEEL_PATH}')"
+    nativepython3 -m build --no-isolation --wheel --outdir ${PEP517_WHEEL_PATH} ${PEP517_SOURCE_PATH} ${PEP517_BUILD_OPTS}
 }
 do_compile[cleandirs] += "${PEP517_WHEEL_PATH}"
 
